@@ -124,7 +124,7 @@ def employees():
         print(rs.fetchall())
 
 @app.route('/job')
-def puesto():
+def job():
     data = request.get_json()
     opt = data.get('opt')
     job_id = data.get('id')
@@ -182,7 +182,7 @@ def region():
         print(rs.fetchall())
 
 @app.route('/country')
-def region():
+def country():
     data = request.get_json()
     opt = data.get('opt')
     country_id = data.get('country_id')
@@ -211,7 +211,7 @@ def region():
         print(rs.fetchall())
 
 @app.route('/location')
-def region():
+def location():
     data = request.get_json()
     opt = data.get('opt')
     location_id = data.get('location_id')
