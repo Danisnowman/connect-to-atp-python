@@ -44,7 +44,7 @@ def employees():
     
 
     if opt is 'insert':
-        sql = f"""insert into employees 
+        sql = """insert into employees 
             (
                 employee_id, 
                 first_name, 
@@ -72,6 +72,7 @@ def employees():
                 :manager_id, 
                 :department_id
             )"""
+
         values = [  
             e_id, 
            first_name, 
@@ -90,7 +91,7 @@ def employees():
 
     elif opt is "delete":
         e_id = data.get('id')
-        sql = f"""delete from employees
+        sql = """delete from employees
         where employee_id = :id"""
         values = [e_id]
         rs = cursor.execute(sql, values)
@@ -100,7 +101,7 @@ def employees():
         e_id = data.get('id')
         salary = data.get('salary')
         job = data.get('job_id')
-        sql = f"""update employees 
+        sql = """update employees 
         set salary = :salary, job_id = :job 
         where employee_id = :id;
         """
@@ -115,7 +116,7 @@ def employees():
     else: #query
         e_id = data.get('id')
         # 
-        sql = f"""select * 
+        sql = """select * 
         from employees 
         where employee_id = :id;
         """
@@ -133,7 +134,7 @@ def puesto():
     max_salary = data.get('max_salary')
 
     if opt is 'insert':
-        sql = f"""insert into jobs 
+        sql = """insert into jobs 
             (
                 job_id,
                 job_title,
@@ -164,7 +165,7 @@ def region():
     region_name = data.get('region_name')
 
     if opt is 'insert':
-        sql = f"""insert into regions
+        sql = """insert into regions
             (
                 region_id,
                 region_name
@@ -190,7 +191,7 @@ def region():
     region_id = data.get('region_id')
 
     if opt is 'insert':
-        sql = f"""insert into countries 
+        sql = """insert into countries 
             (
                 country_id,
                 country_name,
@@ -223,7 +224,7 @@ def region():
     
 
     if opt is 'insert':
-        sql = f"""insert into locations 
+        sql = """insert into locations 
             (
                 location_id,
                 street_adress,
