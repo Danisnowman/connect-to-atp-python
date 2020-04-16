@@ -1,0 +1,87 @@
+
+######### EMPLOYEES #########
+
+# INSERT
+{
+    "opt": "insert",
+    "id": 207, 
+    "first_name": "kath", 
+    "last_name": "maz", 
+    "email": "kath@gmail.com", 
+    "phone_number": "50357107517", 
+    "hire_date": "2020-01-01", 
+    "job_id": 3, 
+    "salary": 2352, 
+    "comission_pct": 0.4, 
+    "manager_id": 3, 
+    "department_id": 4
+}
+
+# DELETE
+{
+    "opt": "delete",
+    "id": 207, 
+}
+
+# UPDATE
+{
+    "opt": "update",
+    "id": 207, 
+    "salary": 2020,
+    "job_id": 3
+}
+
+# QUERY
+{
+    "opt": "query",
+    "id": 207, 
+}
+
+
+
+######### JOB #########
+
+# INSERT
+{
+    "opt": "insert",
+    "id": 2, 
+    "job_title": "DBA",
+    "min_salary": 20,
+    "max_salary": 10000
+}
+
+
+
+######### REGION #########
+
+# INSERT
+{
+    "region_id":   10,
+    "region_name":   "WAKANDA"
+}
+
+
+
+######### COUNTRIES #########
+
+# INSERT
+{
+    "country_id":34,
+     "country_name": "Atlantis",   
+     "region_id":2
+}
+
+
+
+######### LOCATION #########
+
+# INSERT
+{
+    "location_id": 1,
+    "street_adress":   "carretera a el salvador casa de Daniel",
+    "postal_code": 01062,
+    "city": "fraijanes",
+    "state_province": "guatemala",
+    "country_id": 4
+ }
+
