@@ -2,6 +2,7 @@ import cx_Oracle
 import os
 import flask
 from flask import Flask, jsonify, request
+app = Flask(__name__)
 
 
 connection = cx_Oracle.connect(os.environ['DB_USER'], os.environ['DB_PASSWORD'], os.environ['DB_CONNECTIONSTRING'])
@@ -22,8 +23,6 @@ def count():
    rs = cursor.execute("select sum(to_number(extractvalue(xmltype(dbms_xmlgen.getxml('select count(*) c from '||table_name)),'/ROWSET/ROW/C'))) count from user_tables")
    print(rs.fetchall())
 
-app = Flask(__name__)
-#app.config["DEBUG"] = True
 
 # things
 @app.route('/employees', methods=['GET'])
