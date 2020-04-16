@@ -106,9 +106,9 @@ def employees():
         where employee_id = :id;
         """
         values = [
-            f"{salary}",
-            f"{e_id}",
-            f"{job}"
+            salary,
+            e_id,
+            job
         ]
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
@@ -120,7 +120,7 @@ def employees():
         from employees 
         where employee_id = :id;
         """
-        values = [f"{e_id}"]
+        values = [e_id]
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
 
