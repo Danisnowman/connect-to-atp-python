@@ -18,4 +18,5 @@ RUN yum update -y && \
   yum install -y oracle-instantclient19.3-basic.x86_64 && \
   yum clean all && \
   echo Installed
+EXPOSE 3000
 CMD ["python", "oracle.py"]
