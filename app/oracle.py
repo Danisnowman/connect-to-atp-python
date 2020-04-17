@@ -84,7 +84,7 @@ def employees():
                 hire_date, 
                 job_id, 
                 salary, 
-                comission_pct, 
+                commission_pct, 
                 manager_id, 
                 department_id
             )
@@ -126,7 +126,8 @@ def employees():
         where employee_id = :id"""
         values = [e_id]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        print(rs)
 
     elif opt == "update":
         e_id = data.get('id')
@@ -142,7 +143,8 @@ def employees():
             job
         ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        print(rs)
 
     elif opt == "query":
         e_id = data.get('id')
@@ -153,7 +155,8 @@ def employees():
         """
         values = [e_id]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        print(rs)
     return rs
 
 @app.route('/job')
@@ -212,7 +215,8 @@ def region():
             region_name
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        print(rs)
 
 @app.route('/country')
 def country():
@@ -241,7 +245,8 @@ def country():
             region_id
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        print(rs)
     return rs
 
 @app.route('/location')
@@ -284,7 +289,8 @@ def location():
             country_id
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        print(rs)
     return rs
 
 if __name__ == "__main__":
