@@ -4,42 +4,42 @@
 # INSERT
 {
     "opt": "insert",
-    "id": 207, 
+    "id": 212, 
     "first_name": "kath", 
     "last_name": "maz", 
-    "email": "kath@gmail.com", 
-    "phone_number": "503.5710.7517", 
+    "email": "kat3e2fdh@gmail.com", 
+    "phone_number": "503.5710.7547", 
     "hire_date": "2020-01-01", 
-    "job_id": 3, 
+    "job_id": "IT_PROG", 
     "salary": 2352, 
-    "comission_pct": 0.4, 
-    "manager_id": 3, 
-    "department_id": 4
+    "commission_pct": 0.4, 
+    "manager_id": null, 
+    "department_id": null
 }
 
 # DELETE
 {
     "opt": "delete",
-    "id": 207, 
+    "id": 212
 }
 
 # UPDATE
 {
     "opt": "update",
-    "id": 207, 
-    "salary": 2020,
-    "job_id": 3
+    "id": 206,
+    "salary": 57,
+    "job_id": "AC_ACCOUNT"
 }
 
 # QUERY
 {
     "opt": "query",
-    "id": 207, 
+    "id": 206
 }
 
 
 
-######### JOB #########
+######### JOBS #########
 
 # INSERT
 {
@@ -52,12 +52,13 @@
 
 
 
-######### REGION #########
+######### REGIONS #########
 
 # INSERT
 {
-    "region_id":   10,
-    "region_name":   "WAKANDA"
+    "opt": "insert",
+    "region_id": 10,
+    "region_name": "WAKANDA"
 }
 
 
@@ -66,22 +67,24 @@
 
 # INSERT
 {
-    "country_id":34,
-     "country_name": "Atlantis",   
+    "opt": "insert",
+    "country_id":"HO",
+     "country_name": "Hobbiton",   
      "region_id":2
 }
 
 
 
-######### LOCATION #########
+######### LOCATIONS #########
 
 # INSERT
 {
-    "location_id": 1,
-    "street_adress":   "carretera a el salvador casa de Daniel",
-    "postal_code": 01062,
+    "opt": "insert",
+    "location_id": 4,
+    "STREET_ADDRESS": "1245 elf street",
+    "postal_code": "01062",
     "city": "fraijanes",
     "state_province": "guatemala",
-    "country_id": 4
+    "country_id": "US"
  }
 

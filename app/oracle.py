@@ -44,35 +44,6 @@ def employees():
     
 
     if opt == 'insert':
-        # sql = """insert into employees 
-        #     (
-        #         employee_id, 
-        #         first_name, 
-        #         last_name, 
-        #         email, 
-        #         phone_number, 
-        #         hire_date, 
-        #         job_id, 
-        #         salary, 
-        #         commission_pct, 
-        #         manager_id, 
-        #         department_id
-        #     )
-        # values 
-        #     (
-        #         207, 
-        #         'dan', 
-        #         'her', 
-        #         'dan@gmail.com', 
-        #         '501.5710.7517',
-        #         to_date('2020-01-01', 'YYYY-MM-DD'), 
-        #         'IT_PROG', 
-        #         45, 
-        #         0.4, 
-        #         120, 
-        #         80
-        #     )"""
-        # rs = cursor.execute(sql)
         sql = """insert into employees 
             (
                 employee_id, 
@@ -120,27 +91,29 @@ def employees():
         return "inserted"
 
     elif opt == "delete":
-        e_id = data.get('id')
+        employee_id = data.get('id')
         sql = """delete from employees
-        where employee_id = :id"""
-        values = [e_id]
+        where employee_id = :employee_id"""
+        values = [employee_id]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        return "DELETED"
 
     elif opt == "update":
-        e_id = data.get('id')
+        employee_id = data.get('id')
         salary = data.get('salary')
-        job = data.get('job_id')
+        job_id = data.get('job_id')
         sql = """update employees 
-        set salary = :salary, job_id = :job 
-        where employee_id = :id"""
+        set salary = :salary, job_id = :job_id 
+        where employee_id = :employee_id"""
         values = [
             salary,
-            e_id,
-            job
+            job_id,
+            employee_id
         ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        return "UPDATED"
 
     elif opt == "query":
         e_id = data.get('id')
@@ -151,10 +124,11 @@ def employees():
         """
         values = [e_id]
         rs = cursor.execute(sql, values)
+        connection.commit()
         return str(rs.fetchall())
 
-@app.route('/job')
-def job():
+@app.route('/jobs')
+def jobs():
     data = request.get_json()
     opt = data.get('opt')
     job_id = data.get('id')
@@ -184,10 +158,11 @@ def job():
             max_salary, 
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        return "INSERTED"
 
-@app.route('/region')
-def region():
+@app.route('/regions')
+def regions():
     data = request.get_json()
     opt = data.get('opt')
     region_id = data.get('region_id')
@@ -209,10 +184,11 @@ def region():
             region_name
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        return "INSERTED"
 
-@app.route('/country')
-def country():
+@app.route('/countries')
+def countries():
     data = request.get_json()
     opt = data.get('opt')
     country_id = data.get('country_id')
@@ -238,14 +214,15 @@ def country():
             region_id
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        return "INSERTED"
 
-@app.route('/location')
-def location():
+@app.route('/locations')
+def locations():
     data = request.get_json()
     opt = data.get('opt')
     location_id = data.get('location_id')
-    street_adress = data.get('street_adress')
+    STREET_ADDRESS = data.get('STREET_ADDRESS')
     postal_code = data.get('postal_code')
     city = data.get('city')
     state_province = data.get('state_province')
@@ -256,7 +233,7 @@ def location():
         sql = """insert into locations 
             (
                 location_id,
-                street_adress,
+                STREET_ADDRESS,
                 postal_code,
                 city,
                 state_province,
@@ -265,7 +242,7 @@ def location():
         values 
             (
                 :location_id,
-                :street_adress,
+                :STREET_ADDRESS,
                 :postal_code,
                 :city,
                 :state_province,
@@ -273,14 +250,15 @@ def location():
             )"""
         values = [  
             location_id, 
-            street_adress,
+            STREET_ADDRESS,
             postal_code,
             city,
             state_province,
             country_id
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        connection.commit()
+        return "INSERTED"
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', port=3000, debug=True) 
