@@ -22,8 +22,7 @@ print('hola')
 @app.route('/count')
 def count():
    rs = cursor.execute("select sum(to_number(extractvalue(xmltype(dbms_xmlgen.getxml('select count(*) c from '||table_name)),'/ROWSET/ROW/C'))) count from user_tables")
-   print(rs.fetchall())
-   return rs
+   return str(rs.fetchall())
 
 
 # things
@@ -31,7 +30,7 @@ def count():
 def employees():
     data = request.get_json()
     opt = data.get('opt')
-    employee_id = data.get('id')
+    e_id = data.get('id')
     first_name = data.get('first_name')
     last_name = data.get('last_name')
     email = data.get('email')
@@ -90,7 +89,7 @@ def employees():
             )
         values 
             (
-                :employee_id, 
+                :e_id, 
                 :first_name, 
                 :last_name, 
                 :email, 
@@ -104,7 +103,7 @@ def employees():
             )"""
 
         values = [  
-            employee_id, 
+            e_id, 
             first_name, 
             last_name, 
             email, 
@@ -118,8 +117,7 @@ def employees():
             ]
         rs = cursor.execute(sql, values)
         connection.commit()
-        print(rs)
-        return rs
+        return "inserted"
 
     elif opt == "delete":
         e_id = data.get('id')
@@ -127,9 +125,7 @@ def employees():
         where employee_id = :id"""
         values = [e_id]
         rs = cursor.execute(sql, values)
-        connection.commit()
-        print(rs)
-        return rs
+        print(rs.fetchall())
 
     elif opt == "update":
         e_id = data.get('id')
@@ -137,30 +133,25 @@ def employees():
         job = data.get('job_id')
         sql = """update employees 
         set salary = :salary, job_id = :job 
-        where employee_id = :id;
-        """
+        where employee_id = :id"""
         values = [
             salary,
             e_id,
             job
         ]
         rs = cursor.execute(sql, values)
-        connection.commit()
-        print(rs)
-        return rs
+        print(rs.fetchall())
 
     elif opt == "query":
         e_id = data.get('id')
         # 
         sql = """select * 
         from employees 
-        where employee_id = :id;
+        where employee_id = :id
         """
         values = [e_id]
         rs = cursor.execute(sql, values)
-        connection.commit()
-        print(rs)
-        return rs
+        return str(rs.fetchall())
 
 @app.route('/job')
 def job():
@@ -193,8 +184,7 @@ def job():
             max_salary, 
             ]
         rs = cursor.execute(sql, values)
-        print(rs)
-        return rs
+        print(rs.fetchall())
 
 @app.route('/region')
 def region():
@@ -219,9 +209,7 @@ def region():
             region_name
             ]
         rs = cursor.execute(sql, values)
-        connection.commit()
-        print(rs)
-        return rs
+        print(rs.fetchall())
 
 @app.route('/country')
 def country():
@@ -250,9 +238,7 @@ def country():
             region_id
             ]
         rs = cursor.execute(sql, values)
-        connection.commit()
-        print(rs)
-        return rs
+        print(rs.fetchall())
 
 @app.route('/location')
 def location():
@@ -294,9 +280,7 @@ def location():
             country_id
             ]
         rs = cursor.execute(sql, values)
-        connection.commit()
-        print(rs)
-        return rs
+        print(rs.fetchall())
 
 if __name__ == "__main__":
-    app.run(host= '0.0.0.0', port=3000) 
+    app.run(host= '0.0.0.0', port=3000, debug=True) 
