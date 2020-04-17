@@ -87,7 +87,7 @@ def employees():
             department_id
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        print(rs)
 
     elif opt == "delete":
         e_id = data.get('id')
