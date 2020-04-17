@@ -23,6 +23,7 @@ print('hola')
 def count():
    rs = cursor.execute("select sum(to_number(extractvalue(xmltype(dbms_xmlgen.getxml('select count(*) c from '||table_name)),'/ROWSET/ROW/C'))) count from user_tables")
    print(rs.fetchall())
+   return rs
 
 
 # things
@@ -153,6 +154,7 @@ def employees():
         values = [e_id]
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
+    return rs
 
 @app.route('/job')
 def job():
@@ -240,6 +242,7 @@ def country():
             ]
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
+    return rs
 
 @app.route('/location')
 def location():
@@ -282,6 +285,7 @@ def location():
             ]
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
+    return rs
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', port=3000) 
