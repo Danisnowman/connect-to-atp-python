@@ -115,7 +115,7 @@ def employees():
         #     manager_id, 
         #     department_id
         #     ]
-        # rs = cursor.execute(sql, values)
+        rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
 
