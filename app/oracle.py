@@ -72,7 +72,7 @@ def employees():
                 5, 
                 4
             )"""
-        cursor.execute(sql)
+        rs = cursor.execute(sql)
         # sql = """insert into employees 
         #     (
         #         employee_id, 
@@ -115,7 +115,7 @@ def employees():
         #     manager_id, 
         #     department_id
         #     ]
-        rs = cursor.execute(sql, values)
+        # rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
 
