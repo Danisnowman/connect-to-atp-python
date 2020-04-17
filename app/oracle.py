@@ -87,6 +87,7 @@ def employees():
             department_id
             ]
         rs = cursor.execute(sql, values)
+        connection.commit()
         print(rs)
 
     elif opt == "delete":
