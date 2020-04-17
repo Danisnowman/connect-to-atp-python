@@ -66,7 +66,7 @@ def employees():
                 'dan@gmail.com', 
                 '501.5710.7517',
                 to_date('2020-01-01', 'YYYY-MM-DD'), 
-                2, 
+                'IT_PROG', 
                 45, 
                 0.4, 
                 5, 
