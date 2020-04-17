@@ -44,35 +44,6 @@ def employees():
     
 
     if opt == 'insert':
-        sql = """insert into employees 
-            (
-                employee_id, 
-                first_name, 
-                last_name, 
-                email, 
-                phone_number, 
-                hire_date, 
-                job_id, 
-                salary, 
-                commission_pct, 
-                manager_id, 
-                department_id
-            )
-        values 
-            (
-                207, 
-                'dan', 
-                'her', 
-                'dan@gmail.com', 
-                '501.5710.7517',
-                to_date('2020-01-01', 'YYYY-MM-DD'), 
-                'IT_PROG', 
-                45, 
-                0.4, 
-                120, 
-                80
-            )"""
-        rs = cursor.execute(sql)
         # sql = """insert into employees 
         #     (
         #         employee_id, 
@@ -83,39 +54,68 @@ def employees():
         #         hire_date, 
         #         job_id, 
         #         salary, 
-        #         comission_pct, 
+        #         commission_pct, 
         #         manager_id, 
         #         department_id
         #     )
         # values 
         #     (
-        #         :employee_id, 
-        #         ':first_name', 
-        #         ':last_name', 
-        #         ':email', 
-        #         ':phone_number', 
-        #         to_date(':hire_date', 'YYYY-MM-DD'), 
-        #         ':job_id', 
-        #         :salary, 
-        #         :comission_pct, 
-        #         :manager_id, 
-        #         :department_id
-        #     );"""
+        #         207, 
+        #         'dan', 
+        #         'her', 
+        #         'dan@gmail.com', 
+        #         '501.5710.7517',
+        #         to_date('2020-01-01', 'YYYY-MM-DD'), 
+        #         'IT_PROG', 
+        #         45, 
+        #         0.4, 
+        #         120, 
+        #         80
+        #     )"""
+        # rs = cursor.execute(sql)
+        sql = """insert into employees 
+            (
+                employee_id, 
+                first_name, 
+                last_name, 
+                email, 
+                phone_number, 
+                hire_date, 
+                job_id, 
+                salary, 
+                comission_pct, 
+                manager_id, 
+                department_id
+            )
+        values 
+            (
+                :employee_id, 
+                ':first_name', 
+                ':last_name', 
+                ':email', 
+                ':phone_number', 
+                to_date(':hire_date', 'YYYY-MM-DD'), 
+                ':job_id', 
+                :salary, 
+                :comission_pct, 
+                :manager_id, 
+                :department_id
+            );"""
 
-        # values = [  
-        #     e_id, 
-        #     first_name, 
-        #     last_name, 
-        #     email, 
-        #     phone_number, 
-        #     hire_date, 
-        #     job_id, 
-        #     salary, 
-        #     comission_pct, 
-        #     manager_id, 
-        #     department_id
-        #     ]
-        # rs = cursor.execute(sql, values)
+        values = [  
+            e_id, 
+            first_name, 
+            last_name, 
+            email, 
+            phone_number, 
+            hire_date, 
+            job_id, 
+            salary, 
+            comission_pct, 
+            manager_id, 
+            department_id
+            ]
+        rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
 
