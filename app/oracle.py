@@ -61,12 +61,12 @@ def employees():
         values 
             (
                 :employee_id, 
-                :first_name, 
-                :last_name, 
-                :email, 
-                :phone_number, 
-                to_date(:hire_date, 'YYYY-MM-DD'), 
-                :job_id, 
+                ':first_name', 
+                ':last_name', 
+                ':email', 
+                ':phone_number', 
+                to_date(':hire_date', 'YYYY-MM-DD'), 
+                ':job_id', 
                 :salary, 
                 :comission_pct, 
                 :manager_id, 
