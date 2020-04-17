@@ -112,7 +112,7 @@ def employees():
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
 
-    else: #query
+    elif opt is "query":
         e_id = data.get('id')
         # 
         sql = """select * 
