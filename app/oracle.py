@@ -69,7 +69,7 @@ def employees():
                 'IT_PROG', 
                 45, 
                 0.4, 
-                5, 
+                120, 
                 60
             )"""
         rs = cursor.execute(sql)
