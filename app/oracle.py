@@ -8,7 +8,7 @@ app = Flask(__name__)
 connection = cx_Oracle.connect(os.environ['DB_USER'], os.environ['DB_PASSWORD'], os.environ['DB_CONNECTIONSTRING'])
 
 cursor = connection.cursor()
-connection.autocommit()
+connection.autocommit
 rs = cursor.execute("select 'Hello for ADB' from dual")
 print(rs.fetchall())
 rs = cursor.execute("select current_timestamp from dual")
@@ -43,7 +43,7 @@ def employees():
     department_id = data.get('department_id')
     
 
-    if opt is 'insert':
+    if opt == 'insert':
         sql = """insert into employees 
             (
                 employee_id, 
@@ -89,7 +89,7 @@ def employees():
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
 
-    elif opt is "delete":
+    elif opt == "delete":
         e_id = data.get('id')
         sql = """delete from employees
         where employee_id = :id"""
@@ -97,7 +97,7 @@ def employees():
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
 
-    elif opt is "update":
+    elif opt == "update":
         e_id = data.get('id')
         salary = data.get('salary')
         job = data.get('job_id')
@@ -113,7 +113,7 @@ def employees():
         rs = cursor.execute(sql, values)
         print(rs.fetchall())
 
-    elif opt is "query":
+    elif opt == "query":
         e_id = data.get('id')
         # 
         sql = """select * 
@@ -133,7 +133,7 @@ def job():
     min_salary = data.get('min_salary')
     max_salary = data.get('max_salary')
 
-    if opt is 'insert':
+    if opt == 'insert':
         sql = """insert into jobs 
             (
                 job_id,
@@ -164,7 +164,7 @@ def region():
     region_id = data.get('region_id')
     region_name = data.get('region_name')
 
-    if opt is 'insert':
+    if opt == 'insert':
         sql = """insert into regions
             (
                 region_id,
@@ -190,7 +190,7 @@ def country():
     country_name = data.get('country_name')
     region_id = data.get('region_id')
 
-    if opt is 'insert':
+    if opt == 'insert':
         sql = """insert into countries 
             (
                 country_id,
@@ -223,7 +223,7 @@ def location():
     country_id = data.get('country_id')
     
 
-    if opt is 'insert':
+    if opt == 'insert':
         sql = """insert into locations 
             (
                 location_id,
