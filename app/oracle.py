@@ -89,7 +89,7 @@ def employees():
             )
         values 
             (
-                :employee_id, 
+                :e_id, 
                 ':first_name', 
                 ':last_name', 
                 ':email', 
