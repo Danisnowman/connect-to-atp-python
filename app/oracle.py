@@ -8,6 +8,7 @@ app = Flask(__name__)
 connection = cx_Oracle.connect(os.environ['DB_USER'], os.environ['DB_PASSWORD'], os.environ['DB_CONNECTIONSTRING'])
 
 cursor = connection.cursor()
+connection.autocommit()
 rs = cursor.execute("select 'Hello for ADB' from dual")
 print(rs.fetchall())
 rs = cursor.execute("select current_timestamp from dual")

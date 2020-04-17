@@ -44,7 +44,7 @@
 # INSERT
 {
     "opt": "insert",
-    "id": 2, 
+    "id": "JOBID2", 
     "job_title": "DBA",
     "min_salary": 20,
     "max_salary": 10000
