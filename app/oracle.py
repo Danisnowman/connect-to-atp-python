@@ -70,7 +70,7 @@ def employees():
                 :comission_pct, 
                 :manager_id, 
                 :department_id
-            )"""
+            );"""
 
         values = [  
             e_id, 
