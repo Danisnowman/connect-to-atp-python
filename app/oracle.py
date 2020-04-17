@@ -64,7 +64,7 @@ def employees():
                 :last_name, 
                 :email, 
                 :phone_number, 
-                :hire_date, 
+                to_date(:hire_date, 'YYYY-MM-DD'), 
                 :job_id, 
                 :salary, 
                 :comission_pct, 
@@ -74,7 +74,7 @@ def employees():
 
         values = [  
             e_id, 
-           first_name, 
+            first_name, 
             last_name, 
             email, 
             phone_number, 
