@@ -38,7 +38,7 @@ def employees():
     hire_date = data.get('hire_date')
     job_id = data.get('job_id')
     salary = data.get('salary')
-    comission_pct = data.get('comission_pct')
+    commission_pct = data.get('commission_pct')
     manager_id = data.get('manager_id')
     department_id = data.get('department_id')
     
@@ -97,10 +97,10 @@ def employees():
                 to_date(:hire_date, 'YYYY-MM-DD'), 
                 :job_id, 
                 :salary, 
-                :comission_pct, 
+                :commission_pct, 
                 :manager_id, 
                 :department_id
-            );"""
+            )"""
 
         values = [  
             employee_id, 
@@ -111,7 +111,7 @@ def employees():
             hire_date, 
             job_id, 
             salary, 
-            comission_pct, 
+            commission_pct, 
             manager_id, 
             department_id
             ]
