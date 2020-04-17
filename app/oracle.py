@@ -119,6 +119,7 @@ def employees():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
+        return rs
 
     elif opt == "delete":
         e_id = data.get('id')
@@ -128,6 +129,7 @@ def employees():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
+        return rs
 
     elif opt == "update":
         e_id = data.get('id')
@@ -145,6 +147,7 @@ def employees():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
+        return rs
 
     elif opt == "query":
         e_id = data.get('id')
@@ -157,7 +160,7 @@ def employees():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
-    return rs
+        return rs
 
 @app.route('/job')
 def job():
@@ -190,7 +193,8 @@ def job():
             max_salary, 
             ]
         rs = cursor.execute(sql, values)
-        print(rs.fetchall())
+        print(rs)
+        return rs
 
 @app.route('/region')
 def region():
@@ -217,6 +221,7 @@ def region():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
+        return rs
 
 @app.route('/country')
 def country():
@@ -247,7 +252,7 @@ def country():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
-    return rs
+        return rs
 
 @app.route('/location')
 def location():
@@ -291,7 +296,7 @@ def location():
         rs = cursor.execute(sql, values)
         connection.commit()
         print(rs)
-    return rs
+        return rs
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', port=3000) 
