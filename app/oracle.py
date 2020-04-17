@@ -70,7 +70,7 @@ def employees():
                 45, 
                 0.4, 
                 120, 
-                60
+                80
             )"""
         rs = cursor.execute(sql)
         # sql = """insert into employees 
