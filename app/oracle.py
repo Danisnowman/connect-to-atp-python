@@ -30,7 +30,7 @@ def count():
 def employees():
     data = request.get_json()
     opt = data.get('opt')
-    e_id = data.get('id')
+    employee_id = data.get('id')
     first_name = data.get('first_name')
     last_name = data.get('last_name')
     email = data.get('email')
@@ -89,7 +89,7 @@ def employees():
             )
         values 
             (
-                :e_id, 
+                :employee_id, 
                 :first_name, 
                 :last_name, 
                 :email, 
@@ -103,7 +103,7 @@ def employees():
             );"""
 
         values = [  
-            e_id, 
+            employee_id, 
             first_name, 
             last_name, 
             email, 
